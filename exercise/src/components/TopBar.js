@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Button from './Button';
 
-export default class TopBar extends Component {
-  state: { loggedIn: false }
+class TopBar extends Component {
+  
   render() {
+    const {loggedIn, onLogIn} = this.props;
+
     return (
       <header style={{
         height:          48,
@@ -26,14 +29,23 @@ export default class TopBar extends Component {
           {'Modus Create'}
         </div>
         <div style={{float: 'left', color: 'white', flex: 1}} />
-        <div style={{float: 'right', paddingRight: 20}}>
-          <Button style={{backgroundColor: 'blue', color: 'white'}}>Login</Button>
-          <Button style={{backgroundColor: 'red', color: 'white'}}>Signup</Button>
+        <div style={{float: 'right', paddingRight: 20}}>          
+          {
+            loggedIn
+            ? <div>
+                <Button style={{borderRadius: '50%', width: '40px'}} onClick={this.props.onLogIn}>LGA</Button>
+                <Button style={{backgroundColor: 'red', color: 'white'}} onClick={this.props.onLogIn}>Logout</Button>
+              </div>
+            : <div>
+                <Button style={{backgroundColor: 'blue', color: 'white'}} onClick={this.props.onLogIn}>Login</Button>
+                <Button style={{backgroundColor: 'red', color: 'white'}}>Signup</Button>
+              </div>
+          }                  
         </div>
       </header>
     );
   } 
-}
+};
 
 const styles = {
   logo: {
@@ -42,3 +54,9 @@ const styles = {
   }
 };
 
+TopBar.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+  onLogIn: PropTypes.func.isRequired
+}
+
+export default TopBar;

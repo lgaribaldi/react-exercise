@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import HomeContent from '../components/HomeContent';
 import TemplatePage from '../components/TemplatePage';
 
-export default class Home extends Component {
+export default class Users extends Component {
   render() {
-    return (      
+    return (
       <TemplatePage>
         <HomeContent/>
       </TemplatePage>
