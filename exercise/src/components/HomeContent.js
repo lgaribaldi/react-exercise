@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import {Link} from 'react-router-dom';
 
 class HomeContent extends Component {
   render() {
@@ -13,7 +14,8 @@ class HomeContent extends Component {
           ? "Logout"
           : "Login"
         }
-        </Button>                
+        </Button>
+        <Link to="/users">Users</Link>              
       </div>
     );
   }  
