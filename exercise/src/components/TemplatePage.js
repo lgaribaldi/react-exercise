@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import TopBar from './TopBar';
+import PropTypes from 'prop-types';
 
-export default class TemplatePage extends Component {
-  state = { loggedIn : false }
+class TemplatePage extends Component {
+  state = { loggedIn : this.props.loggedIn || false }  
   render() {
     const {children} = this.props;
     return (
@@ -25,3 +26,8 @@ export default class TemplatePage extends Component {
     );
   }.bind(this);
 }
+TemplatePage.propTypes = {
+  loggedIn: PropTypes.bool  
+}
+export default TemplatePage;
+

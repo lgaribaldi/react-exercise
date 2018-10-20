@@ -22,7 +22,7 @@ class TopBar extends Component {
       >
         <div style={styles.logo}>
           <Link to="/">
-            <img alt={'logo'} style={{ maxHeight: 40, flex: 1}} src="favicon-196x196.png"/>
+            <img alt={'logo'} style={{ maxHeight: 40, flex: 1}} src="../favicon-196x196.png"/>
           </Link>
         </div>
         <div>
@@ -33,11 +33,11 @@ class TopBar extends Component {
           {
             loggedIn
             ? <div>
-                <Button style={{borderRadius: '50%', width: '40px'}} onClick={this.props.onLogIn}>LGA</Button>
-                <Button style={{backgroundColor: 'red', color: 'white'}} onClick={this.props.onLogIn}>Logout</Button>
+                <Button style={{borderRadius: '50%', width: '40px'}} onClick={onLogIn}>LGA</Button>
+                <Button style={{backgroundColor: 'red', color: 'white'}} onClick={onLogIn}>Logout</Button>
               </div>
             : <div>
-                <Button style={{backgroundColor: 'blue', color: 'white'}} onClick={this.props.onLogIn}>Login</Button>
+                <Button style={{backgroundColor: 'blue', color: 'white'}} onClick={onLogIn}>Login</Button>
                 <Button style={{backgroundColor: 'red', color: 'white'}}>Signup</Button>
               </div>
           }                  

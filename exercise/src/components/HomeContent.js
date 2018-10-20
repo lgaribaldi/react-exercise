@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
-import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router';
 
-class HomeContent extends Component {
+class HomeContent extends Component {  
+  
   render() {
-    const {loggedIn, onLogIn} = this.props;
+    const {loggedIn, onLogIn, history} = this.props;
+    const usersLocation = {
+      pathname: '/users',
+      state: { 
+        loggedIn        
+      }
+    }
     return (
       <div>                
         <Button onClick={onLogIn}>
@@ -15,15 +22,17 @@ class HomeContent extends Component {
           : "Login"
         }
         </Button>
-        <Link to="/users">Users</Link>              
+        <Button onClick={() => { history.push(usersLocation)}}>
+          Users
+        </Button>
       </div>
     );
   }  
 }
 
 HomeContent.propTypes = {
-  loggedIn: PropTypes.bool.isRequired,
-  onLogIn: PropTypes.func.isRequired
+  loggedIn: PropTypes.bool,
+  onLogIn: PropTypes.func
 }
 
-export default HomeContent;
+export default withRouter(HomeContent);
