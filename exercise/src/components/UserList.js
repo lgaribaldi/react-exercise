@@ -13,22 +13,6 @@ const listStyle = {
   paddingBottom: '8px'  
 };
 
-const listItemStyle = {
-  width: '100%',
-  display: 'flex',
-  position: 'relative',
-  boxSizing: 'border-box',
-  textAlign: 'left',
-  alignItems: 'center',
-  paddingTop: '12px',
-  paddingBottom: '12px',
-  justifyContent: 'flex-start',
-  textDecoration: 'none',
-  borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
-  backgroundClip: 'padding-box'  
-};
-
-
 class UserList extends Component {
     
   state = { users : []};
@@ -45,21 +29,11 @@ class UserList extends Component {
     return (
       <div>
         <ul style={listStyle}>
-          <li style={listItemStyle}>
-            <div style={ { 'width' : '20%' } }>First Name</div>
-            <div style={ { 'width' : '20%' } }>Last Name</div>
-            <div style={ { 'width' : '40%' } }>Email</div>
-            <div style={ { 'width' : '20%' } }>Phone</div>
-          </li>
+          <ListItem values={['First Name', 'Last Name', 'Email', 'Phone']}></ListItem>          
           <div>
             {this.state.users.map((item, i) => 
-                <li style={listItemStyle} key={i}>
-                  <div style={ { 'width' : '20%' } }>{item.name.first}</div>
-                  <div style={ { 'width' : '20%' } }>{item.name.last}</div>
-                  <div style={ { 'width' : '40%' } }>{item.email}</div>
-                  <div style={ { 'width' : '20%' } }>{item.phone}</div>
-                </li>
-              )}
+              <ListItem key={i} values={[item.name.first, item.name.last, item.email, item.phone]}></ListItem>              
+            )}
           </div>
         </ul>
       </div>
