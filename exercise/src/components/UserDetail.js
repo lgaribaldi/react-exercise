@@ -10,8 +10,8 @@ const styles = {
     paddingTop: '16px'
   },
   item : {
-    paddingTop: '8px',
-    paddingBottom: '8px'
+    paddingTop: '10px',
+    paddingBottom: '10px'
   }
 };
 
